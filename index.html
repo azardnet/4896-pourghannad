@@ -43,6 +43,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            transition: border-radius 350ms;
         }
         a.hover {
             transition-property: color;
@@ -171,5 +172,11 @@
                 </div>
         </footer>
     </main>
+    <script>
+        const main = document.querySelector('main');
+        main.addEventListener('mousemove', (e) => {
+            main.style.borderRadius = `${Math.abs(e.movementX)}px ${Math.abs(e.movementY)}px`;
+        })
+    </script>
 </body>
 </html>
