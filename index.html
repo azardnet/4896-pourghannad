@@ -176,7 +176,16 @@
         const main = document.querySelector('main');
         main.addEventListener('mousemove', (e) => {
             main.style.borderRadius = `${Math.abs(e.movementX)}px ${Math.abs(e.movementY)}px`;
-        })
+        });
+        let previousTouch;
+        main.addEventListener('touchmove', (e) => {
+            if (previousTouch) {
+                const movementX = e.touches[0].pageX - previousTouch.pageX;
+                const movementY = e.touches[0].pageY - previousTouch.pageY;
+                main.style.borderRadius = `${Math.abs(movementX)}px ${Math.abs(movementY)}px`;
+            }
+            previousTouch = e.touches[0];
+        });
     </script>
 </body>
 </html>
