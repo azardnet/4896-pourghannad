@@ -186,6 +186,9 @@
             }
             previousTouch = e.touches[0];
         });
+        main.addEventListener('touchend', (e) => {
+            previousTouch = null;
+        });
     </script>
 </body>
 </html>
